@@ -7,6 +7,7 @@ function Tasks(props) {
         <li key={task.id} className="flex">
           <button
             onClick={() => props.onTaskClick(task.id)}
+
             className={`bg-slate-400 text-white p-2 rounded-md text-left w-full ${
               task.isCompleted && "line-through"
             }`}
@@ -16,6 +17,7 @@ function Tasks(props) {
 
           <button className="bg-slate-400 p-2 rounded-md text-white">
             Ver
+
           </button>
         </li>
       ))}

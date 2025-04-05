@@ -1,16 +1,14 @@
-import { useState, useEffect } from "react";
-import React from "react";
+import { useState } from "react";
 
 const Button = () => {
   const [message, setMessage] = useState("Olá");
 
-
   return (
     <div>
-        <h1>{message}</h1>
+      <h1>{message}</h1>
       <button
         onClick={() => {
-            setMessage("Fui clicado!")
+          setMessage("Fui clicado!");
         }}
       >
         Clique aqui
