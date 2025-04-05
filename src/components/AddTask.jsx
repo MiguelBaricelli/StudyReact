@@ -1,8 +1,3 @@
-export function AddTask ()  {
-   
-        <h1>Add task</h1>
+function AddTask() {}
 
-    
-}
-
-AddTask()
+export default AddTask;
