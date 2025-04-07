@@ -2,6 +2,7 @@ import "./App.css";
 import Tasks from "./components/Tasks";
 import AddTask from "./components/AddTask";
 import { useState } from "react";
+import { v4 } from "uuid";
 
 function App() {
   const [tasks, setTasks] = useState([
@@ -24,14 +25,35 @@ function App() {
     setTasks(newTasks);
   }
 
+  function OnDeleteTaskClick(taskId) {
+    const newTasks = tasks.filter((task) => task.id !== taskId);
+    setTasks(newTasks);
+  }
+
+  function OnAddTaskSubmit(title, description) {
+    const newTasks = {
+      id: v4(),
+      title: title,
+      description: description,
+      isCompleted: false,
+    };
+    setTasks([...tasks, newTasks]);
+  }
+
   return (
     <>
       <div className="w-screen h-screen bg-slate-500 justify-center items-center p-6">
-        <h1 className="text-3xl text-slate-100 font-bold text-center">
-          Gerenciador de tarefas
-        </h1>
-        <Tasks tasks={tasks} onTaskClick={onTaskClick} />
-        <AddTask />
+        <div className="w-[500px] space-y-4">
+          <h1 className="text-3xl text-slate-100 font-bold text-center">
+            Gerenciador de tarefas
+          </h1>
+          <Tasks
+            tasks={tasks}
+            onTaskClick={onTaskClick}
+            OnDeleteTaskClick={newTasks}
+          />
+          <AddTask OnAddTaskSubmit={OnAddTaskSubmit} />
+        </div>
       </div>
     </>
   );
