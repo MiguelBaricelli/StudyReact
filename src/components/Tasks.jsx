@@ -11,6 +11,7 @@ export function Tasks({props, OnTaskClick, OnDeleteTaskClick}) {
           <button
             // eslint-disable-next-line react/prop-types
             onClick={() => props.onTaskClick(task.id)}
+
             className={`bg-slate-400 text-white p-2 rounded-md text-left w-full ${
               task.isCompleted && "line-through"
             }`}
@@ -20,6 +21,7 @@ export function Tasks({props, OnTaskClick, OnDeleteTaskClick}) {
 
           <button className="bg-slate-400 p-2 rounded-md text-white">
             Ver
+
           </button>
           <button onClick={() => 
             props.OnDeleteTaskClick(task.id)
