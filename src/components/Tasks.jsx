@@ -1,6 +1,6 @@
 
 
-function Tasks({props, OnTaskClick, OnDeleteTaskClick}) {
+export function Tasks({props, OnTaskClick, OnDeleteTaskClick}) {
   console.log(props);
 
   return (
@@ -32,4 +32,4 @@ function Tasks({props, OnTaskClick, OnDeleteTaskClick}) {
   );
 }
 
-export default Tasks;
+

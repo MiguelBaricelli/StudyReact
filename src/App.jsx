@@ -1,6 +1,6 @@
 import "./App.css";
-import Tasks from "./components/Tasks";
-import AddTask from "./components/AddTask";
+import { Tasks } from "./components/Tasks.jsx";
+import { AddTask } from "./components/AddTask.jsx";
 import { useState } from "react";
 import { v4 } from "uuid";
 
@@ -50,7 +50,7 @@ function App() {
           <Tasks
             tasks={tasks}
             onTaskClick={onTaskClick}
-            OnDeleteTaskClick={newTasks}
+            OnDeleteTaskClick={OnDeleteTaskClick}
           />
           <AddTask OnAddTaskSubmit={OnAddTaskSubmit} />
         </div>

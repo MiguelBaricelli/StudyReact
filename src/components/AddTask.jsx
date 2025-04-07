@@ -21,8 +21,8 @@ export function AddTask(OnAddTaskSubmit) {
     />
     <button
       onClick={() => {
-        if(!title.trim() || description.trim()) {
-                return alert("Preencha o titulo e a descrição")
+        if (!title.trim() || description.trim()) {
+          return alert("Preencha o titulo e a descrição");
         }
         OnAddTaskSubmit(title, description);
         setTitle(""), setDescription("");
@@ -33,5 +33,3 @@ export function AddTask(OnAddTaskSubmit) {
     </button>
   </div>;
 }
-
-AddTask();
