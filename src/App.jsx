@@ -1,19 +1,32 @@
 import "./App.css";
 import { Tasks } from "./components/Tasks.jsx";
 import { AddTask } from "./components/AddTask.jsx";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { v4 } from "uuid";
 
-
 function App() {
-  const [tasks, setTasks] = useState([
-    {
-      id: 1,
-      title: "Estudar",
-      descripition: "Estudar hoje",
-      isCompleted: false,
-    },
-  ]);
+  const [tasks, setTasks] = useState(
+    JSON.parse(localStorage.getItem("tasks")) || []
+  );
+
+  useEffect(() => {
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+  }, [tasks]);
+
+  useEffect(() => {
+    //chamar api
+    async function fetchTasks() {
+      const response = await fetch(
+        "http://jsonplaceholder.typicode.com/todos?_limit=10",
+        { method: "GET" }
+      );
+      const data = await response.json();
+
+      fetchTasks(data);
+    }
+
+    
+  }, []);
 
   function onTaskClick(taskId) {
     const newTasks = tasks.map((task) => {

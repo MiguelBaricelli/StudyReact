@@ -1,20 +1,15 @@
-import { useState } from "react";
 
-const Button = () => {
-  const [message, setMessage] = useState("Olá");
 
-  return (
-    <div>
-      <h1>{message}</h1>
-      <button
-        onClick={() => {
-          setMessage("Fui clicado!");
-        }}
-      >
-        Clique aqui
-      </button>
-    </div>
-  );
+function Button (props)  {
+ 
+
+  return ( 
+    <button onClick={props.onClick} className="bg-slate-400 p-2 rounded-md text-white">
+      {props.children}
+    </button>
+
+  )
+    
 };
 
 export default Button;

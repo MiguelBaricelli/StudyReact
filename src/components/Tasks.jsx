@@ -1,6 +1,17 @@
+import { useNavigate } from "react-router-dom";
+import Button from "./Button";
 
 
 export function Tasks({props, OnTaskClick, OnDeleteTaskClick}) {
+  const navigate = useNavigate()
+
+  function OnSeeDetailsClick(task) {
+    const query = new URLSearchParams();
+    query.set("title", task.title)
+    query.set("description", task.descirption)
+    navigate(`/task?${query.toString()}`)
+  }
+
   console.log(props);
 
   return (
@@ -19,15 +30,15 @@ export function Tasks({props, OnTaskClick, OnDeleteTaskClick}) {
             {task.title}
           </button>
 
-          <button className="bg-slate-400 p-2 rounded-md text-white">
+          <Button onClick={() => navigate()} className="bg-slate-400 p-2 rounded-md text-white">
             Ver
 
-          </button>
-          <button onClick={() => 
+          </Button>
+          <Button onClick={() => 
             props.OnDeleteTaskClick(task.id)
           } className="bg-slate-400 p-2 rounded-md text-white">
             Delete
-          </button>
+          </Button>
         </li>
       ))}
     </ul>
